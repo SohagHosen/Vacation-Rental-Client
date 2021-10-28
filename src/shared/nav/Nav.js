@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
 import {
   Collapse,
   Navbar,
@@ -8,15 +8,19 @@ import {
   NavItem,
   NavbarText,
 } from "reactstrap";
+import useAuth from "../../hooks/useAuth";
 
 const MyNav = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const { user, logout } = useAuth();
+  const history = useHistory();
   const toggle = () => setIsOpen(!isOpen);
-
+  const handleLogin = () => {
+    history.push("/signin");
+  };
   return (
     <div>
-      <Navbar color="light" light expand="md">
+      <Navbar color="dark" dark expand="md">
         <Link className="navbar-brand" to="/">
           Vacation Rental
         </Link>
@@ -43,7 +47,20 @@ const MyNav = () => {
               </NavLink>
             </NavItem>
           </Nav>
-          <NavbarText>Simple Text</NavbarText>
+          {user ? (
+            <div className="d-flex gap-2">
+              <NavbarText>{user?.displayName}</NavbarText>
+              <button onClick={logout} className="btn btn-danger">
+                {" "}
+                Log out
+              </button>
+            </div>
+          ) : (
+            <button onClick={handleLogin} className="btn btn-success">
+              {" "}
+              Login
+            </button>
+          )}
         </Collapse>
       </Navbar>
     </div>

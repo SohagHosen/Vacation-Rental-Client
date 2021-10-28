@@ -1,0 +1,10 @@
+.hero {
+  /* background-image: url(../../../assets/pexels-konstantinos-eleftheriadis-2034335.jpg); */
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../../../assets/pexels-konstantinos-eleftheriadis-2034335.jpg);
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: white;
+}
