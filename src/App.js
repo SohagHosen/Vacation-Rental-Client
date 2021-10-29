@@ -7,7 +7,9 @@ import AuthProvider from "./context/AuthProvider";
 import Signin from "./pages/signin/Signin";
 import PrivateRoute from "./shared/privateRoute/PrivateRoute";
 import BookingRoom from "./pages/bookingRoom/BookingRoom";
-
+import MyBookings from "./pages/myBookings/MyBookings";
+import NotFound from "./pages/notFound/NotFound";
+import ManageAllBooking from "./pages/manageAllBooking/ManageAllBooking";
 function App() {
   return (
     <AuthProvider>
@@ -23,6 +25,15 @@ function App() {
           <PrivateRoute exact path="/bookingRoom">
             <BookingRoom />
           </PrivateRoute>
+          <PrivateRoute exact path="/bookings">
+            <MyBookings />
+          </PrivateRoute>
+          <PrivateRoute exact path="/manageAllBooking">
+            <ManageAllBooking />
+          </PrivateRoute>
+          <Route path="*">
+            <NotFound />
+          </Route>
         </Switch>
         <Footer />
       </Router>

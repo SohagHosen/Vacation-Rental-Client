@@ -32,20 +32,29 @@ const MyNav = () => {
         >
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink className="nav-link" to="/home">
+              <NavLink exact className="nav-link" to="/">
                 Home
               </NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink className="nav-link" to="/bookings">
-                My Bookings
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink className="nav-link" to="/manageAllBooking">
-                Manage All Bookings
-              </NavLink>
-            </NavItem>
+            {user && (
+              <>
+                <NavItem>
+                  <NavLink className="nav-link" to="/bookings">
+                    My Bookings
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="nav-link" to="/manageAllBooking">
+                    Manage All Bookings
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="nav-link" to="/addNewRoom">
+                    Add new Room
+                  </NavLink>
+                </NavItem>
+              </>
+            )}
           </Nav>
           {user ? (
             <div className="d-flex gap-2">

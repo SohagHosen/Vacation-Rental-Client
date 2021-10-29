@@ -5,13 +5,16 @@ import { useHistory } from "react-router-dom";
 const Rooms = () => {
   const [rooms, setRooms] = useState([]);
   let history = useHistory();
-  const handleClick = () => {
-    history.push("/bookingRoom");
+  const handleClick = (id) => {
+    history.push({
+      pathname: "/bookingRoom",
+      state: { id: id },
+    });
   };
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/hotels")
+      .get("http://localhost:5000/rooms")
       .then((response) => {
         setRooms(response.data);
       })
@@ -21,25 +24,25 @@ const Rooms = () => {
     <section className="our-rooms text-center my-5">
       <h1 className="">Our Rooms</h1>
       <div className=" container my-5">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div className="row row-cols-1 row-cols-md-3 g-4">
           {rooms?.map((room) => (
-            <div class="col">
-              <div class="card">
+            <div className="col">
+              <div className="card">
                 <img
                   height="200px"
                   src={room.img}
-                  class="card-img-top"
+                  className="card-img-top"
                   alt="..."
                 />
-                <div class="card-body">
-                  <h5 class="card-title">{room.name}</h5>
-                  <p class="card-text text-muted">{room.desc}</p>
+                <div className="card-body">
+                  <h5 className="card-title">{room.name}</h5>
+                  <p className="card-text text-muted">{room.desc}</p>
                   <div>
                     <p>${room.price} / Per night</p>
                   </div>
                   <button
-                    onClick={handleClick}
-                    class="btn w-100 bg-success text-white fw-bold"
+                    onClick={() => handleClick(room._id)}
+                    className="btn w-100 bg-success text-white fw-bold"
                   >
                     BOOK NOW
                   </button>

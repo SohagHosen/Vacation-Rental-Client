@@ -1,0 +1,13 @@
+.booking h1 {
+  position: relative;
+  display: inline-block;
+}
+.booking h1::before {
+  content: "";
+  background-color: red;
+  width: 150px;
+  height: 3px;
+  position: absolute;
+  top: 50px;
+  left: 95px;
+}
