@@ -5,6 +5,8 @@ import MyNav from "./shared/nav/Nav";
 import Footer from "./shared/footer/Footer";
 import AuthProvider from "./context/AuthProvider";
 import Signin from "./pages/signin/Signin";
+import PrivateRoute from "./shared/privateRoute/PrivateRoute";
+import BookingRoom from "./pages/bookingRoom/BookingRoom";
 
 function App() {
   return (
@@ -18,6 +20,9 @@ function App() {
           <Route exact path="/signin">
             <Signin />
           </Route>
+          <PrivateRoute exact path="/bookingRoom">
+            <BookingRoom />
+          </PrivateRoute>
         </Switch>
         <Footer />
       </Router>

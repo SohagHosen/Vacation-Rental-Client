@@ -1,0 +1,13 @@
+.our-rooms h1 {
+  position: relative;
+  display: inline-block;
+}
+.our-rooms h1::before {
+  content: "";
+  background-color: red;
+  width: 150px;
+  height: 3px;
+  position: absolute;
+  top: 50px;
+  left: 65px;
+}

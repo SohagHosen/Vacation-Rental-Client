@@ -37,7 +37,7 @@ const useFirebase = () => {
       }
     });
   }, []);
-  return { user, setUser, signIn, logout };
+  return { user, setUser, signIn, logout, loading };
 };
 
 export default useFirebase;
