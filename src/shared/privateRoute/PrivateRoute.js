@@ -7,12 +7,10 @@ const PrivateRoute = ({ children, ...rest }) => {
   if (loading) {
     return (
       <div
-        className="d-flex align-items-center justify-content-center"
-        style={{ height: "200px" }}
+        style={{ height: "450px" }}
+        className="d-flex justify-content-center align-items-center"
       >
-        <Spinner color="primary" type="grow">
-          Loading...
-        </Spinner>
+        <Spinner style={{ height: "100px", width: "100px" }} color="primary" />
       </div>
     );
   }

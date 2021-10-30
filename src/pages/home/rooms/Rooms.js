@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./rooms.css";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-const Rooms = () => {
-  const [rooms, setRooms] = useState([]);
+const Rooms = ({ rooms }) => {
+  // const [rooms, setRooms] = useState([]);
   let history = useHistory();
   const handleClick = (id) => {
     history.push({
@@ -12,14 +12,14 @@ const Rooms = () => {
     });
   };
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000/rooms")
-      .then((response) => {
-        setRooms(response.data);
-      })
-      .catch((error) => console.log(error));
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:5000/rooms")
+  //     .then((response) => {
+  //       setRooms(response.data);
+  //     })
+  //     .catch((error) => console.log(error));
+  // }, []);
   return (
     <section className="our-rooms text-center my-5">
       <h1>Our Rooms</h1>
