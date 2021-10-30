@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-
+import signinImg from "../../assets/signin.jpg";
 const Signin = () => {
   const { signIn, setUser, setLoading } = useAuth();
   let history = useHistory();

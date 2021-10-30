@@ -1,7 +1,7 @@
 .hero {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(../../../assets/hotel-bed.jpg);
-  height: 527px;
+  height: 540px;
   background-size: cover;
   background-position: center;
   position: relative;

@@ -65,7 +65,10 @@ const MyBookings = () => {
               />
             </div>
           ) : (
-            <div className="container booking text-center my-5">
+            <div
+              style={{ minHeight: "300px", backgroundColor: "red" }}
+              className="container booking text-center my-5"
+            >
               <h1 className=" mt-5">My Bookings</h1>
               <div className="row row-cols-1 row-cols-md-2 g-4 my-5">
                 {bookings?.map((booking) => (
