@@ -20,56 +20,59 @@ const MyNav = () => {
   };
   return (
     <div>
-      <Navbar color="dark" dark expand="md">
+      <Navbar dark color="dark" expand="md">
+        <NavbarToggler
+          className="navbar-toggler-right"
+          onClick={() => setIsOpen(!isOpen)}
+        />
         <Link className="navbar-brand" to="/">
           Vacation Rental
         </Link>
-        <NavbarToggler onClick={toggle} />
-        <Collapse
-          className="d-flex justify-content-between"
-          isOpen={isOpen}
-          navbar
-        >
-          <Nav className="mr-auto" navbar>
-            <NavItem>
-              <NavLink exact className="nav-link" to="/">
-                Home
-              </NavLink>
-            </NavItem>
-            {user && (
-              <>
-                <NavItem>
-                  <NavLink className="nav-link" to="/bookings">
-                    My Bookings
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink className="nav-link" to="/manageAllBooking">
-                    Manage All Bookings
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink className="nav-link" to="/addNewRoom">
-                    Add new Room
-                  </NavLink>
-                </NavItem>
-              </>
-            )}
+        <Collapse isOpen={isOpen} navbar>
+          <Nav navbar>
+            <Nav className="mr-auto" navbar>
+              <NavItem>
+                <NavLink exact className="nav-link" to="/">
+                  Home
+                </NavLink>
+              </NavItem>
+              {user && (
+                <>
+                  <NavItem>
+                    <NavLink className="nav-link" to="/bookings">
+                      My Bookings
+                    </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink className="nav-link" to="/manageAllBooking">
+                      Manage All Bookings
+                    </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink className="nav-link" to="/addNewRoom">
+                      Add new Room
+                    </NavLink>
+                  </NavItem>
+                </>
+              )}
+            </Nav>
           </Nav>
-          {user ? (
-            <div className="d-flex gap-2">
-              <NavbarText>{user?.displayName}</NavbarText>
-              <button onClick={logout} className="btn btn-danger">
+          <NavbarText>
+            {user ? (
+              <div className="d-flex gap-2">
+                <NavbarText>{user?.displayName}</NavbarText>
+                <button onClick={logout} className="btn btn-danger">
+                  {" "}
+                  Log out
+                </button>
+              </div>
+            ) : (
+              <button onClick={handleLogin} className="btn btn-success">
                 {" "}
-                Log out
+                Login
               </button>
-            </div>
-          ) : (
-            <button onClick={handleLogin} className="btn btn-success">
-              {" "}
-              Login
-            </button>
-          )}
+            )}
+          </NavbarText>
         </Collapse>
       </Navbar>
     </div>

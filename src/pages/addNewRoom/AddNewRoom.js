@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
-
+import "./addNewRoom.css";
 const AddNewRoom = () => {
   const {
     register,
@@ -21,8 +21,9 @@ const AddNewRoom = () => {
   };
 
   return (
-    <div className="container my-5">
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <div className="container my-5 new-room text-center">
+      <h1>Add a new Room</h1>
+      <form className="mt-5 text-start" onSubmit={handleSubmit(onSubmit)}>
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">
             Room Name

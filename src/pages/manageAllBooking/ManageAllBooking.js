@@ -2,15 +2,16 @@ import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-
+import "./manage.css";
 const ManageAllBooking = () => {
   const [allBookings, setAllBookings] = useState([]);
+  const [status, setStatus] = useState(false);
   useEffect(() => {
     axios
       .get("http://localhost:5000/bookings")
       .then((res) => setAllBookings(res.data))
       .catch((error) => console.log(error));
-  }, []);
+  }, [status]);
   console.log(allBookings);
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to cancel this booking?")) {
@@ -33,6 +34,12 @@ const ManageAllBooking = () => {
       .patch(`http://localhost:5000/booking/status/${id}`, {
         status: "activate",
       })
+      .then((response) => {
+        console.log(response);
+        if (response.data.matchedCount) {
+          setStatus(!status);
+        }
+      })
       .catch((error) => console.log(error));
   };
   const handleDeactivate = (id) => {
@@ -40,11 +47,21 @@ const ManageAllBooking = () => {
       .patch(`http://localhost:5000/booking/status/${id}`, {
         status: "pending",
       })
+      .then((response) => {
+        console.log(response);
+        if (response.data.matchedCount) {
+          setStatus(!status);
+        }
+      })
       .catch((error) => console.log(error));
   };
   return (
-    <div class="container-fluid" style={{ minHeight: "450px" }}>
-      <div class="table-responsive">
+    <div
+      class="container-fluid my-5 manage text-center"
+      style={{ minHeight: "450px" }}
+    >
+      <h1>Manage all Bookings</h1>
+      <div class="table-responsive mt-5">
         <table class="table">
           <thead>
             <tr>

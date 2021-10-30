@@ -22,7 +22,7 @@ const Rooms = () => {
   }, []);
   return (
     <section className="our-rooms text-center my-5">
-      <h1 className="">Our Rooms</h1>
+      <h1>Our Rooms</h1>
       <div className=" container my-5">
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {rooms?.map((room) => (
