@@ -26,7 +26,7 @@ const Rooms = () => {
       <div className=" container my-5">
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {rooms?.map((room) => (
-            <div className="col">
+            <div key={room._id} className="col">
               <div className="card">
                 <img
                   height="200px"

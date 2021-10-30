@@ -10,6 +10,7 @@ import BookingRoom from "./pages/bookingRoom/BookingRoom";
 import MyBookings from "./pages/myBookings/MyBookings";
 import NotFound from "./pages/notFound/NotFound";
 import ManageAllBooking from "./pages/manageAllBooking/ManageAllBooking";
+import AddNewRoom from "./pages/addNewRoom/AddNewRoom";
 function App() {
   return (
     <AuthProvider>
@@ -30,6 +31,12 @@ function App() {
           </PrivateRoute>
           <PrivateRoute exact path="/manageAllBooking">
             <ManageAllBooking />
+          </PrivateRoute>
+          <PrivateRoute exact path="/manageAllBooking">
+            <ManageAllBooking />
+          </PrivateRoute>
+          <PrivateRoute exact path="/addNewRoom">
+            <AddNewRoom />
           </PrivateRoute>
           <Route path="*">
             <NotFound />

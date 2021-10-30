@@ -28,6 +28,20 @@ const ManageAllBooking = () => {
         .catch((err) => console.error(err));
     }
   };
+  const handleActive = (id) => {
+    axios
+      .patch(`http://localhost:5000/booking/status/${id}`, {
+        status: "activate",
+      })
+      .catch((error) => console.log(error));
+  };
+  const handleDeactivate = (id) => {
+    axios
+      .patch(`http://localhost:5000/booking/status/${id}`, {
+        status: "pending",
+      })
+      .catch((error) => console.log(error));
+  };
   return (
     <div class="container-fluid" style={{ minHeight: "450px" }}>
       <div class="table-responsive">
@@ -49,7 +63,45 @@ const ManageAllBooking = () => {
                 <td>{booking.userName}</td>
                 <td>{booking.email}</td>
                 <td>{booking.date}</td>
-                <td>{booking.status}</td>
+                <td>
+                  {booking.status === "pending" ? (
+                    <div className="d-flex gap-3">
+                      <span class="position-relative">
+                        {booking.status}
+                        <span
+                          style={{ top: "13px", left: "-12px" }}
+                          class="position-absolute translate-middle p-2 bg-danger border border-light rounded-circle"
+                        >
+                          <span class="visually-hidden">New alerts</span>
+                        </span>
+                      </span>
+                      <button
+                        onClick={() => handleActive(booking._id)}
+                        className="border-0 bg-white text-success"
+                      >
+                        Activate
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="d-flex gap-3">
+                      <span class=" position-relative">
+                        {booking.status}
+                        <span
+                          style={{ top: "13px", left: "-12px" }}
+                          class="position-absolute translate-middle p-2 bg-success border border-light rounded-circle"
+                        >
+                          <span class="visually-hidden">New alerts</span>
+                        </span>
+                      </span>
+                      <button
+                        onClick={() => handleDeactivate(booking._id)}
+                        className="border-0 bg-white text-danger"
+                      >
+                        Deactivate
+                      </button>
+                    </div>
+                  )}
+                </td>
                 <td>
                   <button
                     onClick={() => handleDelete(booking._id)}
