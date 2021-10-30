@@ -2,12 +2,12 @@
   position: relative;
   display: inline-block;
 }
-.our-rooms h1::before {
+.our-rooms h1::after {
   content: "";
   background-color: red;
   width: 150px;
   height: 3px;
   position: absolute;
   top: 50px;
-  left: 65px;
+  right: 0px;
 }

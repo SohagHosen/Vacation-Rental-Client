@@ -54,13 +54,16 @@ const MyBookings = () => {
                     <div className="col-md-6">
                       <img
                         src={booking.img}
-                        style={{ height: "200px" }}
-                        className="img-fluid rounded-start"
+                        style={{ height: "200px", width: "100%" }}
+                        className="img-fluid"
                         alt="..."
                       />
                     </div>
-                    <div className="col-md-6 text-start">
-                      <div className="card-body pt-0 position-relative  h-100">
+                    <div
+                      className="col-md-6 text-start"
+                      style={{ minHeight: "130px", height: "auto" }}
+                    >
+                      <div className="card-body pt-md-0 position-relative  h-100">
                         <h5 className="card-title">{booking.name}</h5>
                         <small className="text-muted">
                           {booking.date}

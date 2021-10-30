@@ -1,0 +1,13 @@
+.contact h1 {
+  position: relative;
+  display: inline-block;
+}
+.contact h1::after {
+  content: "";
+  background-color: red;
+  width: 150px;
+  height: 3px;
+  position: absolute;
+  top: 50px;
+  right: 0px;
+}

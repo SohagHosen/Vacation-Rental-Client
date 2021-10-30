@@ -2,12 +2,12 @@
   position: relative;
   display: inline-block;
 }
-.booking h1::before {
+.booking h1::after {
   content: "";
   background-color: red;
   width: 150px;
   height: 3px;
   position: absolute;
   top: 50px;
-  left: 95px;
+  right: 0px;
 }

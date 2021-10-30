@@ -14,13 +14,12 @@ const MyNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user, logout } = useAuth();
   const history = useHistory();
-  const toggle = () => setIsOpen(!isOpen);
   const handleLogin = () => {
     history.push("/signin");
   };
   return (
     <div>
-      <Navbar dark color="dark" expand="md">
+      <Navbar dark color="dark" expand="lg">
         <NavbarToggler
           className="navbar-toggler-right"
           onClick={() => setIsOpen(!isOpen)}
@@ -28,7 +27,7 @@ const MyNav = () => {
         <Link className="navbar-brand" to="/">
           Vacation Rental
         </Link>
-        <Collapse isOpen={isOpen} navbar>
+        <Collapse isOpen={isOpen} navbar className="">
           <Nav navbar>
             <Nav className="mr-auto" navbar>
               <NavItem>
@@ -57,7 +56,7 @@ const MyNav = () => {
               )}
             </Nav>
           </Nav>
-          <NavbarText>
+          <NavbarText className="ms-auto">
             {user ? (
               <div className="d-flex gap-2">
                 <NavbarText>{user?.displayName}</NavbarText>

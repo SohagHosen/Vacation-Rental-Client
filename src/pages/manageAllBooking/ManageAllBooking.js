@@ -61,7 +61,7 @@ const ManageAllBooking = () => {
       style={{ minHeight: "450px" }}
     >
       <h1>Manage all Bookings</h1>
-      <div class="table-responsive mt-5">
+      <div class="table-responsive-lg mt-5">
         <table class="table">
           <thead>
             <tr>
