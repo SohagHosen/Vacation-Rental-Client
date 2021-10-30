@@ -25,7 +25,7 @@ const Home = () => {
     <>
       {loading ? (
         <div
-          style={{ height: "450px" }}
+          style={{ height: "500px" }}
           className="d-flex justify-content-center align-items-center"
         >
           <Spinner
