@@ -10,7 +10,7 @@ const AddNewRoom = () => {
   } = useForm();
   const onSubmit = (data) => {
     axios
-      .post("http://localhost:5000/room/new", data)
+      .post("https://evening-tor-67309.herokuapp.com/room/new", data)
       .then((response) => {
         console.log(response);
         if (response.data.insertedId) {

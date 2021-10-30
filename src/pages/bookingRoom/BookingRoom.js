@@ -26,7 +26,7 @@ const BookingRoom = () => {
     newData.status = "pending";
     console.log(newData);
     axios
-      .post("http://localhost:5000/room/booking", newData)
+      .post("https://evening-tor-67309.herokuapp.com/room/booking", newData)
       .then(function (response) {
         console.log(response);
         if (response.data.insertedId) {
@@ -38,7 +38,7 @@ const BookingRoom = () => {
   useEffect(() => {
     const id = location.state.id;
     axios
-      .get(`http://localhost:5000/room/${id}`)
+      .get(`https://evening-tor-67309.herokuapp.com/room/${id}`)
       .then(function (response) {
         setRoom(response.data);
         console.log(response);

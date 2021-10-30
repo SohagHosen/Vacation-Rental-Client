@@ -11,7 +11,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/rooms")
+      .get("https://evening-tor-67309.herokuapp.com/rooms")
       .then((response) => {
         setRooms(response.data);
         setLoading(false);

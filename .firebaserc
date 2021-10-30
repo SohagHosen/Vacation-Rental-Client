@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "authentication-d0784"
+  },
+  "targets": {
+    "authentication-d0784": {
+      "hosting": {
+        "vacation-rental": [
+          "vacation-rental.web.app"
+        ]
+      }
+    }
+  }
+}

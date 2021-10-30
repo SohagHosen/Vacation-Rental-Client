@@ -11,7 +11,7 @@ const ManageAllBooking = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/bookings")
+      .get("https://evening-tor-67309.herokuapp.com/bookings")
       .then((res) => {
         setAllBookings(res.data);
         setLoading(false);
@@ -24,7 +24,7 @@ const ManageAllBooking = () => {
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to cancel this booking?")) {
       axios
-        .delete(`http://localhost:5000/booking/cancel/${id}`)
+        .delete(`https://evening-tor-67309.herokuapp.com/booking/cancel/${id}`)
         .then((res) => {
           console.log(res);
           if (res.data.deletedCount) {
@@ -39,7 +39,7 @@ const ManageAllBooking = () => {
   };
   const handleActive = (id) => {
     axios
-      .patch(`http://localhost:5000/booking/status/${id}`, {
+      .patch(`https://evening-tor-67309.herokuapp.com/booking/status/${id}`, {
         status: "activate",
       })
       .then((response) => {
@@ -52,7 +52,7 @@ const ManageAllBooking = () => {
   };
   const handleDeactivate = (id) => {
     axios
-      .patch(`http://localhost:5000/booking/status/${id}`, {
+      .patch(`https://evening-tor-67309.herokuapp.com/booking/status/${id}`, {
         status: "pending",
       })
       .then((response) => {

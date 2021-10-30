@@ -13,7 +13,9 @@ const MyBookings = () => {
   useEffect(() => {
     if (user) {
       axios
-        .get(`http://localhost:5000/user/bookings/${user.email}`)
+        .get(
+          `https://evening-tor-67309.herokuapp.com/user/bookings/${user.email}`
+        )
         .then((res) => {
           setBookings(res.data);
           setLoading(false);
@@ -28,7 +30,7 @@ const MyBookings = () => {
   const cancelBooking = (id) => {
     if (window.confirm("Are you sure you want to cancel this booking?")) {
       axios
-        .delete(`http://localhost:5000/booking/cancel/${id}`)
+        .delete(`https://evening-tor-67309.herokuapp.com/booking/cancel/${id}`)
         .then((res) => {
           console.log(res);
           if (res.data.deletedCount) {
